@@ -21,6 +21,10 @@ window.Vue = require('vue');
 
 Vue.component('nav-component', require('./components/NavComponent.vue').default);
 Vue.component('footer-component',require('./components/FooterComponent.vue').default);
+Vue.component('mypage-component',require('./components/MypageComponent.vue').default);
+
+
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

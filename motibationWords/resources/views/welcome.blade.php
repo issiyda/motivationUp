@@ -84,10 +84,6 @@
                     Motivation   Up
                 </div>
 
-                <div class="links">
-                    <a {{ route('register') }}>新規登録</a>
-                    <a {{route('login')}}>ログイン</a>
-                </div>
             </div>
         </div>
     </body>
