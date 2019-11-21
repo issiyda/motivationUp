@@ -77,11 +77,17 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            @if(Auth::check())
+                <router-view/>
+            @else
+                @yield('content')
+            @endif
+
         </main>
-            <footer>
-                    <footer-component></footer-component>
-            </footer>
+
+        <footer>
+            <footer-component></footer-component>
+        </footer>
     </div>
 </body>
 </html>
