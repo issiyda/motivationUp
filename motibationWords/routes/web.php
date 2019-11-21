@@ -34,7 +34,6 @@ Route::get('/mypage', "MotivationController@index")->name('mypage');
 //
 //Route::get('auth/twitter/logout', 'Auth\TwitterController@logout');
 
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
