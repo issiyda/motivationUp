@@ -77,11 +77,13 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <all-component></all-component>
         </main>
-            <footer>
-                    <footer-component></footer-component>
-            </footer>
+
+
+        <footer>
+            <footer-component></footer-component>
+        </footer>
     </div>
 </body>
 </html>

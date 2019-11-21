@@ -22,6 +22,8 @@ Vue.use('VueRouter');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+Vue.component('all-component', require('./main/AllComponent.vue').default);
+
 Vue.component('nav-component', require('./components/NavComponent.vue').default);
 Vue.component('footer-component',require('./components/FooterComponent.vue').default);
 Vue.component('post-component',require('./components/PostComponent.vue').default);

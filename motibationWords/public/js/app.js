@@ -53101,6 +53101,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use('VueRouter');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('all-component', __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module './main/AllComponent.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()))["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('nav-component', __webpack_require__(/*! ./components/NavComponent.vue */ "./resources/js/components/NavComponent.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('footer-component', __webpack_require__(/*! ./components/FooterComponent.vue */ "./resources/js/components/FooterComponent.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('post-component', __webpack_require__(/*! ./components/PostComponent.vue */ "./resources/js/components/PostComponent.vue")["default"]);
