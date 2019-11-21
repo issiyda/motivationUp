@@ -77,7 +77,12 @@
         </nav>
 
         <main class="py-4">
-            <router-view/>
+            @if(Auth::check())
+                <router-view/>
+            @else
+                @yield('content')
+            @endif
+
         </main>
 
         <footer>
