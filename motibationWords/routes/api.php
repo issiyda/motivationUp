@@ -17,4 +17,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('/mypage','MotivationController@index');
-Route::post('/mypage','MotivationController@post')
+Route::post('/mypage','MotivationController@post');
