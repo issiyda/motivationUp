@@ -3,8 +3,8 @@
         <nav class ="navbar">
           <ul>
               <li><a href="/">Top</a></li>
-              <li><a href="/mypage">Mypage</a></li>
-              <li><a href="/post">Post</a></li>
+              <li><router-link to ="/mypage">Mypage</router-link</li>
+              <li><router-link to ="/post">Post</router-link></li>
           </ul>
         </nav>
     </div>

@@ -2,6 +2,9 @@
 
 @section('content')
 
+
+{{--    <router-view></router-view>--}}
+
     <div class ="container">
         <h1>Mypage</h1>
 
