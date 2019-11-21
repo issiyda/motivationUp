@@ -1868,6 +1868,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('MypageComponent mounted');
@@ -37951,7 +37953,9 @@ var staticRenderFns = [
     return _c("div", { staticClass: "footer-container" }, [
       _c("p", [_vm._v("モチベーションの源泉をあなたに届ける")]),
       _vm._v(" "),
-      _c("p", { staticClass: "app" }, [_vm._v("モチベ")]),
+      _c("p", { staticClass: "app" }, [
+        _c("a", { attrs: { href: "#" } }, [_vm._v("モチベ")])
+      ]),
       _vm._v(" "),
       _c("p", [_vm._v("CreatedBy ~shogo~")])
     ])

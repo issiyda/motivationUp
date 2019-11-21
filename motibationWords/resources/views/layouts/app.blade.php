@@ -15,6 +15,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+{{--    <link rel="stylesheet" href="{{asset('css/drawer.css')}}">--}}
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -23,7 +24,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" id="#" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
 
@@ -88,6 +89,15 @@
         <footer>
             <footer-component></footer-component>
         </footer>
+
+        <drawer-menu>
+            <ul>
+                <li>a</li>
+                <li>i</li>
+                <li>u</li>
+                <li>e</li>
+            </ul>
+        </drawer-menu>
     </div>
 </body>
 </html>

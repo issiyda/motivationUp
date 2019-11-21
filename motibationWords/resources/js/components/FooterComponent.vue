@@ -1,7 +1,7 @@
 <template>
     <div class ="footer-container">
         <p>モチベーションの源泉をあなたに届ける</p>
-        <p class ="app">モチベ</p>
+        <p class ="app"><a href="#">モチベ</a></p>
         <p>CreatedBy ~shogo~</p>
     </div>
 </template>

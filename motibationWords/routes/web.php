@@ -22,12 +22,12 @@ Route::get('/', function () {
 
 
 
-Route::get('/[any',function(){
-    return view('home');
+Route::get('/[any]',function(){
+    return view('/');
 })->where('any','.*');
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('/mypage', "MotivationController@index")->name('mypage');
 //Route::get('auth/twitter', 'Auth\TwitterController@redirectToProvider');
 //
 //Route::get('auth/twitter/callback', 'Auth\TwitterController@handleProviderCallback');
