@@ -77,9 +77,8 @@
         </nav>
 
         <main class="py-4">
-            <all-component></all-component>
+            <router-view/>
         </main>
-
 
         <footer>
             <footer-component></footer-component>
