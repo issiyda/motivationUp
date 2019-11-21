@@ -21,7 +21,7 @@ window.Vue = require('vue');
 
 Vue.component('nav-component', require('./components/NavComponent.vue').default);
 Vue.component('footer-component',require('./components/FooterComponent.vue').default);
-Vue.component('mypage-component',require('./components/MypageComponent.vue').default);
+Vue.component('post-component',require('./components/PostComponent.vue').default);
 
 
 
