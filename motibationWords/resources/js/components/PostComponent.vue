@@ -34,9 +34,8 @@
                 </div>
             </div>
 
-            <button @click="">送信！！</button>
-
-            <li v-for="user in users">{{user}}</li>
+            <router-link to="/mypage"><button @click="postText">送信！！</button>
+            </router-link>
 
         </div>
     </div>
@@ -49,23 +48,30 @@
             return {
                 title: "",
                 text: "",
-                users:[]
-
             }
         },
         methods:{
-            postArticle(){
-                var article = {
+            postText(){
+                var text = {
                     "title" : this.title,
                     "text" : this.text,
-                }
-            }
+                };
 
+                var id = 1;
+
+                axios.post('/api/post/' +id,text).then(res =>{
+
+
+                    console.log('res.data.title');
+                    console.log('res.data.text');
+
+                });
+            }
         },
         mounted() {
             console.log('PostComponent mounted.')
-            axios.get('users').then(response => this.users = response.data)
         },
+
         name: "PostComponent"
     }
 </script>

@@ -18,3 +18,22 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::get('/mypage','MotivationController@index');
 Route::post('/mypage','MotivationController@post');
+
+
+Route::group(['middleware' => 'api'],function(){
+
+    Route::post('/post/{id}',function($id){
+
+        $user = App\User::where('id',$id)->first();
+
+
+        $post = new App\Post();
+        $post->title = request('title');
+        $post->text = request('text');
+
+        $user->posts()->save($post);
+
+        return ['title' => request('title'),'text' =>request('text')];
+
+    });
+});

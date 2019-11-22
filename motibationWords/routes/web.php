@@ -34,5 +34,5 @@ Route::get('/mypage', "MotivationController@index")->name('mypage');
 
 //axiosでデータを引っ張るためのルーティング
 Route::get('users',function(){
- return ['KEN','MEIZI'];
+    return App\User::all();
 });

@@ -13,6 +13,13 @@ class CratePostsTable extends Migration
      */
     public function up()
     {
+        Schema::create('posts', function (Blueprint $table){
+            $table->bigIncrements('id');
+            $table->integer('user_id')->references('id')->on('users')->unsigned()->index();
+            $table->string('title');
+            $table->string('text');
+            $table->timestamps();
+        });
         //
     }
 
@@ -23,6 +30,7 @@ class CratePostsTable extends Migration
      */
     public function down()
     {
+        Schema::drop('posts');
         //
     }
 }

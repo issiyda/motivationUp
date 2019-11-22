@@ -2004,30 +2004,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       title: "",
-      text: "",
-      users: []
+      text: ""
     };
   },
   methods: {
-    postArticle: function postArticle() {
-      var article = {
+    postText: function postText() {
+      var text = {
         "title": this.title,
         "text": this.text
       };
+      var id = 1;
+      axios.post('/api/post/' + id, text).then(function (res) {
+        console.log('res.data.title');
+        console.log('res.data.text');
+      });
     }
   },
   mounted: function mounted() {
-    var _this = this;
-
     console.log('PostComponent mounted.');
-    axios.get('users').then(function (response) {
-      return _this.users = response.data;
-    });
   },
   name: "PostComponent"
 });
@@ -38345,15 +38343,11 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c("button", { on: { click: function($event) {} } }, [
-          _vm._v("送信！！")
-        ]),
-        _vm._v(" "),
-        _vm._l(_vm.users, function(user) {
-          return _c("li", [_vm._v(_vm._s(user))])
-        })
+        _c("router-link", { attrs: { to: "/mypage" } }, [
+          _c("button", { on: { click: _vm.postText } }, [_vm._v("送信！！")])
+        ])
       ],
-      2
+      1
     )
   ])
 }
