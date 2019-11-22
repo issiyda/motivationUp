@@ -35,7 +35,7 @@
         z-index: 99;
         cursor: pointer;
         position: fixed;
-        top: 10%;
+        top: 15%;
         right: -80px;
         background: #0DCEA8;
         width: 140px;
@@ -56,7 +56,40 @@
         margin:auto;
     }
 
+    li{
+        margin-bottom:3%;
+    }
+
     .drawer-container a{
         text-decoration:none;
     }
+
+    a{
+        color:ghostwhite;
+
+        display:inline-block;
+        position:relative;
+        text-decoration:none;
+
+    }
+
+    a::after{
+        position:absolute;
+        bottom:-2px;
+        left:0;
+        content: "";
+        width: 100%;
+        height:2px;
+        background:white;
+        transform: scale(0, 1);
+        transform-origin: right top;
+        transition: transform .3s;
+    }
+
+
+    a:hover::after{
+        transform-origin: left top;
+        transform: scale(1,1);
+    }
+
 </style>
