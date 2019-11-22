@@ -1,6 +1,6 @@
 <template>
     <div>
-
+        Mypageの設計がんばれ！！
     </div>
 </template>
 

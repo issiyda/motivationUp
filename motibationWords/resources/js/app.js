@@ -6,12 +6,19 @@
 
 
 require('./bootstrap');
+//requireで簡単に別のファイル読み込める
+require('./components');
 
 window.Vue = require('vue');
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+
 import router from "./router";
+
+//componentはこのファイルにまとめる
+// import component from "./components";
+
 
 Vue.use(VueRouter);
 /**
@@ -26,8 +33,8 @@ Vue.use(VueRouter);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 //
-Vue.component('nav-component', require('./components/NavComponent.vue').default);
-Vue.component('footer-component',require('./components/FooterComponent.vue').default);
+// Vue.component('nav-component', require('./components/NavComponent.vue').default);
+// Vue.component('footer-component',require('./components/FooterComponent.vue').default);
 
 
 
@@ -42,5 +49,5 @@ Vue.component('footer-component',require('./components/FooterComponent.vue').def
 
 const app = new Vue({
     el: '#app',
-    router
+    router,
 });

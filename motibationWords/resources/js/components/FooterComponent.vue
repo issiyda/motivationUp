@@ -17,7 +17,7 @@
 
 <style scoped>
     .footer-container{
-        background: #00cc66;
+        background: #0DCEA8;
         opacity:0.9;
     }
 

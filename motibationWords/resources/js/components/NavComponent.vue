@@ -21,7 +21,7 @@
 
 </script>
 
-<style>
+<style scoped>
     ul {
         display:flex;
         flex-direction: row;
@@ -40,7 +40,7 @@
         vertical-align:middle;
     }
     li a{
-        background: #00cc66;
+        background: #0DCEA8;
         padding:5%;
 
     }

@@ -86,18 +86,13 @@
 
         </main>
 
+        <drawer-component></drawer-component>
+
         <footer>
             <footer-component></footer-component>
         </footer>
 
-        <drawer-menu>
-            <ul>
-                <li>a</li>
-                <li>i</li>
-                <li>u</li>
-                <li>e</li>
-            </ul>
-        </drawer-menu>
+
     </div>
 </body>
 </html>
