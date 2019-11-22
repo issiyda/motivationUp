@@ -1977,9 +1977,57 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      title: "",
+      text: "",
+      users: []
+    };
+  },
+  methods: {
+    postArticle: function postArticle() {
+      var article = {
+        "title": this.title,
+        "text": this.text
+      };
+    }
+  },
   mounted: function mounted() {
-    console.log('Component mounted.');
+    var _this = this;
+
+    console.log('PostComponent mounted.');
+    axios.get('users').then(function (response) {
+      return _this.users = response.data;
+    });
   },
   name: "PostComponent"
 });
@@ -38196,32 +38244,120 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("h1", [_vm._v("投稿ぺーじ")]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form form-container" },
+      [
+        _c("form", { attrs: { action: "" } }, [
+          _c("div", { staticClass: "input" }, [
+            _c("div", { staticClass: "input-title-container" }, [
+              _c("label", { attrs: { for: "input-title" } }, [
+                _vm._v("タイトル")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.title,
+                    expression: "title"
+                  }
+                ],
+                staticClass: "input-title",
+                attrs: {
+                  type: "text",
+                  id: "input-title",
+                  placeholder: "タイトル"
+                },
+                domProps: { value: _vm.title },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.title = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "input-text-container" }, [
+              _c("label", { attrs: { for: "input-text" } }, [
+                _vm._v("テキスト")
+              ]),
+              _vm._v(" "),
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.text,
+                    expression: "text"
+                  }
+                ],
+                staticClass: "input-text",
+                attrs: {
+                  name: "text",
+                  id: "input-text",
+                  cols: "30",
+                  rows: "10",
+                  placeholder: "あなたのモチベを上げる言葉を入力してください"
+                },
+                domProps: { value: _vm.text },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.text = $event.target.value
+                  }
+                }
+              })
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "output" }, [
+          _c("h3", [_vm._v("入力内容")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "output-title" }, [
+            _c("label", { attrs: { for: "title" } }, [
+              _vm._v("題名\n\n                ")
+            ]),
+            _vm._v(" "),
+            _c("p", { attrs: { id: "output-title" } }, [
+              _vm._v(_vm._s(_vm.title))
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "output-content" }, [
+            _c("label", { attrs: { for: "text" } }, [
+              _vm._v("内容\n\n                ")
+            ]),
+            _vm._v(" "),
+            _c("p", { attrs: { id: "output-text" } }, [
+              _vm._v(_vm._s(_vm.text))
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("button", { on: { click: function($event) {} } }, [
+          _vm._v("送信！！")
+        ]),
+        _vm._v(" "),
+        _vm._l(_vm.users, function(user) {
+          return _c("li", [_vm._v(_vm._s(user))])
+        })
+      ],
+      2
+    )
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-6 col-md-4" }, [
-      _c("div", { staticClass: "card " }, [
-        _c("h5", { staticClass: "card-header text-center" }, [
-          _vm._v("\n            タイトル\n        ")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "card-body" }, [
-          _vm._v(
-            "\n            コンテンツaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n        "
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "card-footer" }, [
-          _vm._v("\n            フッター\n        ")
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

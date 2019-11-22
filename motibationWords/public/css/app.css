@@ -11114,3 +11114,26 @@ footer {
   margin-top: auto;
 }
 
+.form {
+  margin: 0 auto;
+  text-align: center;
+  width: 60%;
+}
+
+label {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.input {
+  text-align: center;
+}
+
+.input-title {
+  width: 100%;
+}
+
+.input-text {
+  width: 100%;
+}
+

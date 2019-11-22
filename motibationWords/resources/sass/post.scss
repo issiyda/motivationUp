@@ -1,0 +1,31 @@
+.form {
+    margin: 0 auto;
+    text-align: center;
+    width: 60%;
+}
+
+    label{
+        font-size:20px;
+        font-weight:bold;
+    }
+    .input {
+        text-align: center;
+
+        &-title-container{
+        }
+
+        &-title {
+            width: 100%;
+        }
+
+        &-text-container{
+        }
+
+        &-text {
+            width: 100%;
+        }
+    }
+    .output{
+
+    }
+

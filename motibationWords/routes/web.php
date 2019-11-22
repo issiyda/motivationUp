@@ -11,11 +11,13 @@
 |
 */
 
-Auth::routes();
-
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+
 
 
 
@@ -28,13 +30,9 @@ Route::get('/[any]',function(){
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/mypage', "MotivationController@index")->name('mypage');
-//Route::get('auth/twitter', 'Auth\TwitterController@redirectToProvider');
-//
-//Route::get('auth/twitter/callback', 'Auth\TwitterController@handleProviderCallback');
-//
-//Route::get('auth/twitter/logout', 'Auth\TwitterController@logout');
 
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-
+//axiosでデータを引っ張るためのルーティング
+Route::get('users',function(){
+ return ['KEN','MEIZI'];
+});
