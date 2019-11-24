@@ -37,3 +37,10 @@ Route::group(['middleware' => 'api'],function(){
 
     });
 });
+
+Route::get('/mypage', function(Request $request) {
+
+    $posts = App\Post::all();
+
+    return response()->json(['posts' => $posts]);
+});
