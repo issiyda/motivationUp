@@ -5,6 +5,7 @@
                         <li><a href="/">Top</a></li>
                         <li><router-link to ="/mypage">Mypage</router-link></li>
                         <li><router-link to ="/post">Post</router-link></li>
+                        <li><router-link to="/setting">Setting</router-link></li>
                     </ul>
         </div>
     </div>

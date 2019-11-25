@@ -14,7 +14,7 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP&display=swap" rel="stylesheet">
 {{--    <link rel="stylesheet" href="{{asset('css/drawer.css')}}">--}}
 
     <!-- Styles -->
@@ -23,7 +23,9 @@
 
 </head>
 <body>
+
     <div id="app">
+        <div class="footer-top">
         <nav class="navbar navbar-expand-md navbar-light shadow-sm">
             <div class="container">
                 <a class="navbar-brand" id="#" href="{{ url('/') }}">
@@ -90,10 +92,10 @@
 
         <drawer-component></drawer-component>
 
+        </div>
         <footer>
             <footer-component></footer-component>
         </footer>
-
 
     </div>
 </body>

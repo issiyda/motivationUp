@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,4 +44,18 @@ Route::get('/mypage', function(Request $request) {
     $posts = App\Post::all();
 
     return response()->json(['posts' => $posts]);
+});
+
+Route::get('/setting', function(){
+
+//    $users = Auth::user();
+//
+//        return response()->json(['users' => $users]);
+
+
+    $users = App\User::all();
+
+    return response()->json(['users' => $users]);
+
+
 });

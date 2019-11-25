@@ -1,6 +1,7 @@
 import Router from 'vue-router';
 import Mypage from './components/MypageComponent';
 import Post from './components/PostComponent';
+import Setting from "./components/SettingComponent";
 
 export default new Router({
 
@@ -18,6 +19,11 @@ export default new Router({
             name:'post',
             path: '/post',
             component: Post
+        },
+        {
+            name: 'setting',
+            path: '/setting',
+            component: Setting
         }
     ]
 

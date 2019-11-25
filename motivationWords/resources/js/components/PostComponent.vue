@@ -57,7 +57,7 @@
                     "text" : this.text,
                 };
 
-                var id = 1;
+                var id = 11;
 
                 axios.post('/api/post/' +id,text).then(res =>{
 

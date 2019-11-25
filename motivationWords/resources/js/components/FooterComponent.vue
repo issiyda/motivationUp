@@ -1,8 +1,11 @@
 <template>
-    <div class ="footer-container">
+    <div class ="footer footer-container">
+        <div class="footer-blank"></div>
+        <div class ="footer-content">
         <p>モチベーションの源泉をあなたに届ける</p>
-        <p class ="app"><a href="#">モチベ</a></p>
-        <p>CreatedBy ~shogo~</p>
+        <a href="#">モチベ</a>
+        <div>CreatedBy ~shogo~</div>
+        </div>
     </div>
 </template>
 
@@ -16,12 +19,5 @@
 </script>
 
 <style scoped>
-    .footer-container{
-        background: #0DCEA8;
-        opacity:0.9;
-    }
 
-.app{
-    font-weight: bolder;
-}
 </style>

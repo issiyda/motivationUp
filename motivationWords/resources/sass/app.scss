@@ -1,11 +1,14 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
+
+@import "base/all";
+@import './base/reset';
 // Variables
 @import 'variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-@import "footer";
-@import "post";
+
+@import "./components/components";

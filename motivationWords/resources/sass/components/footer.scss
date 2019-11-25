@@ -1,0 +1,30 @@
+body .footer-top{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.footer {
+    text-align: center;
+    margin-top: auto;
+    opacity: 0.9;
+
+
+    &-blank {
+        height: 100px;
+    }
+
+    &-content{
+        background: #0DCEA8;
+        border-radius:3%;
+        display: flex;
+        flex-flow:column;
+        height:140px;
+        justify-content:space-around;
+        margin:0 auto 2%;
+        width:90%;
+    }
+
+}
+
+

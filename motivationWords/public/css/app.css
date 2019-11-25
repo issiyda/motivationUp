@@ -1,5 +1,146 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+* {
+  font-family: "Noto Serif JP", serif;
+}
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -11100,7 +11241,66 @@ a.text-dark:focus {
   }
 }
 
-body #app {
+.post {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0 auto;
+  text-align: center;
+  width: 80%;
+}
+
+.post-title {
+  background: deepskyblue;
+  color: #fff;
+  padding: 3%;
+}
+
+.post-card {
+  border: 1px solid #0DCEA8;
+  border-radius: 2%;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  margin: 3%;
+  width: 35%;
+}
+
+.post-main {
+  padding: 3%;
+}
+
+.setting {
+  background: #fff;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  margin: 0 auto;
+  text-align: center;
+  width: 60%;
+}
+
+.setting-container {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  margin: 15% auto;
+  width: 100%;
+}
+
+.setting-input {
+  width: 80%;
+  margin: 3% auto;
+}
+
+body .footer-top {
   display: -webkit-box;
   display: flex;
   -webkit-box-orient: vertical;
@@ -11109,9 +11309,39 @@ body #app {
   min-height: 100vh;
 }
 
-footer {
+.footer {
   text-align: center;
   margin-top: auto;
+  opacity: 0.9;
+}
+
+.footer-blank {
+  height: 100px;
+}
+
+.footer-content {
+  background: #0DCEA8;
+  border-radius: 3%;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-flow: column;
+  height: 140px;
+  justify-content: space-around;
+  margin: 0 auto 2%;
+  width: 90%;
+}
+
+.navbar-brand {
+  font-size: 28px;
+  font-weight: bolder;
+}
+
+.container {
+  display: -webkit-box;
+  display: flex;
+  margin: 1rem auto;
 }
 
 .form {
