@@ -8,12 +8,21 @@
     text-align: center;
     width: 80%;
 
-    &-title{
-        background:deepskyblue;
-        color:#fff;
-        padding:3%;
-    }
+    &-container {
+        background: deepskyblue;
+        display:flex;
 
+
+        &-title {
+            color: #fff;
+            padding: 3%;
+            width:80%;
+        }
+        &-icon{
+            width:20%;
+        }
+
+    }
     &-card{
         border:1px solid #0DCEA8;
         border-radius:2% ;

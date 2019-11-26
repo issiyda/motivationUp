@@ -1950,6 +1950,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     var _this = this;
@@ -38354,9 +38360,17 @@ var render = function() {
       { staticClass: "post post-container" },
       _vm._l(_vm.posts, function(post) {
         return _c("div", { staticClass: "post-card" }, [
-          _c("div", { staticClass: "post-title" }, [
-            _c("div", [_vm._v("タイトル")]),
-            _vm._v("\n                " + _vm._s(post.title) + "\n            ")
+          _c("div", { staticClass: "post-container" }, [
+            _c("div", { staticClass: "post-container-title" }, [
+              _c("div", [_vm._v("タイトル")]),
+              _vm._v(
+                "\n                        " +
+                  _vm._s(post.title) +
+                  "\n                    "
+              )
+            ]),
+            _vm._v(" "),
+            _vm._m(0, true)
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "post-main" }, [
@@ -38390,7 +38404,16 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "post-container-icon fav-icon" }, [
+      _c("i", { staticClass: "fas fa-heart fa-2x" })
+    ])
+  }
+]
 render._withStripped = true
 
 

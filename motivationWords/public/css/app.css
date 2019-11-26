@@ -11411,10 +11411,20 @@ a.text-dark:focus {
   width: 80%;
 }
 
-.post-title {
+.post-container {
   background: deepskyblue;
+  display: -webkit-box;
+  display: flex;
+}
+
+.post-container-title {
   color: #fff;
   padding: 3%;
+  width: 80%;
+}
+
+.post-container-icon {
+  width: 20%;
 }
 
 .post-card {

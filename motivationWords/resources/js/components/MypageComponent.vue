@@ -4,10 +4,16 @@
         <h3>Myモチベ</h3>
         <div  class ="post post-container">
             <div v-for="post in posts" class="post-card">
-                <div class="post-title">
-                    <div>タイトル</div>
-                    {{post.title}}
-                </div>
+                    <div class="post-container">
+                        <div class="post-container-title">
+                            <div>タイトル</div>
+                            {{post.title}}
+                        </div>
+                        <div class ="post-container-icon fav-icon">
+                        <i class="fas fa-heart fa-2x"></i>
+                        </div>
+                    </div>
+
                 <div class="post-main">
                     <div>言葉</div>
                     {{post.text}}
