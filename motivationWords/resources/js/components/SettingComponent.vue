@@ -3,24 +3,26 @@
         <h2>アカウント設定</h2>
 
         <div class ="setting" >
-            <div v-for="user in users" class="setting-container" v-if="user.id === 11">
+            <div class="setting-container">
                         <div class="setting-input">
                             <label for="name">Name</label><br>
-                            <input id="name" class="setting-input" :value="user.name">
+                            <div v-if="!isNameEdit" @dblclick="isNameEdit = true">{{user.name}}</div>
+                            <input v-else @blur="updateName(user.id , user.name)" id="name" class="setting-input" v-model="user.name">
                         </div>
 
                         <div class="setting-input">
                             <label for="email">Email</label><br>
-                            <input id="email" class="setting-input" :value="user.email">
+                            <div v-if="!isEmailEdit" @dblclick="isEmailEdit = true">{{user.email}}</div>
+                            <input v-else @blur="updateEmail(user.id, user.email)" id="email" class="setting-input" v-model="user.email">
                         </div>
 
 
                         <div class="setting-input">
                             <label for="introduction">Introduction</label><br>
-                            <textarea id="introduction" class="setting-input">{{user.introduction}}</textarea>
+                            <div class ="introduction" v-if="!isIntroductionEdit" @dblclick="isIntroductionEdit = true">{{user.introduction}}</div>
+                            <textarea v-else @blur="updateIntroduction(user.id, user.introduction)" v-model="user.introduction" id="introduction" class="setting-input"></textarea>
                         </div>
 
-                        <button @click="Edit">編集する</button>
 
 
             </div>
@@ -31,33 +33,64 @@
 <script>
     export default {
 
-        data() {
-            return {
-                users: {},
+        data:function() {
+            return{
+                id: this.user.id,
+                name:this.user.name,
+                email:this.user.email,
+                introduction:this.user.introduction,
+                isNameEdit: false,
+                isEmailEdit: false,
+                isIntroductionEdit: false,
+
+
             }
         },
+
+
+
         mounted() {
             console.log('SettingComponent mounted');
 
-            axios.get('/api/setting')
-                .then(response=>{
-                    this.users = response.data.users;
-                })
-                .catch(error => {
-                    console.log(error)
-                });
-
-
-
-
-
         },
         methods:{
-            Edit:function(){
 
-            }
+            updateName : function(id,name){
+                axios.patch('http://127.0.0.1:8000/api/setting/' + id,{id : id,
+                name : name})
+                    .then((response) => {
+                        this.isNameEdit = false;
+                        console.log(response)
+                    }).catch((error) =>{
+                        console.log(error)
+                })
+            },
+            updateEmail : function(id,email){
+                axios.patch('http://127.0.0.1:8000/api/setting/' + id,{id: id, email : email})
+                    .then((response)=>{
+                        this.isEmailEdit = false;
+                        console.log(response);
+                    }).catch((error) =>{
+                         console.log(error);
+                })
+            },
+            updateIntroduction : function(id,introduction){
+                axios.patch('http://127.0.0.1:8000/api/setting/' + id,{id : id, introduction : introduction})
+                    .then((response) => {
+                    this.isIntroductionEdit = false;
+                    console.log(response)
+                }).catch((error) =>{
+                    console.log(error);
+                })
+            },
         },
+
         name: "SettingComponent",
+        props:{
+            user:{ type: String,
+                   required: true
+            }
+        }
 
 
     }
@@ -66,5 +99,9 @@
 </script>
 
 <style scoped>
-
+    .introduction{
+        border:1px solid #0DCEA8;
+        border-radius:3%;
+        height:50px;
+    }
 </style>

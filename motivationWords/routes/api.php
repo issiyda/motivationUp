@@ -59,3 +59,17 @@ Route::get('/setting', function(){
 
 
 });
+
+Route::patch('/setting/{id}',function($id,Request $request){
+
+    $user = App\User::find($id);
+
+    $user->fill($request->all())->update();
+
+    return response()->json([
+        'success' => 'user updated successfully!'
+    ],200);
+
+
+});
+

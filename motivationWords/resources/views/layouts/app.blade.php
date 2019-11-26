@@ -83,7 +83,7 @@
 
         <main class="py-4">
             @if(Auth::check())
-                <router-view/>
+                <router-view :user = "{{$user}}"/>
             @else
                 @yield('content')
             @endif
