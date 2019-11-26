@@ -87,7 +87,7 @@
 
         name: "SettingComponent",
         props:{
-            user:{ type: String,
+            user:{ type: Object,
                    required: true
             }
         }

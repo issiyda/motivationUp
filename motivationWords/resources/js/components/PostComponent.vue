@@ -57,22 +57,33 @@
                     "text" : this.text,
                 };
 
-                var id = 11;
+                var id = this.user.id;
 
-                axios.post('/api/post/' +id,text).then(res =>{
+                axios.post('/api/post/' +id,text)
+                    .then(res =>{
 
 
                     console.log('res.data.title');
                     console.log('res.data.text');
 
-                });
+                })
+                    .catch((error) =>{
+                        console.log(error);
+                    });
+
             }
         },
         mounted() {
-            console.log('PostComponent mounted.')
+            console.log('PostComponent mounted.');
         },
 
-        name: "PostComponent"
+        name: "PostComponent",
+        props: {
+            user: {
+                type: Object,
+                required: true,
+            }
+        },
     }
 </script>
 

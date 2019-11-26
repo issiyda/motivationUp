@@ -1,0 +1,13 @@
+
+//app.bladeの一番上に#overlayあります
+
+#overlay{
+    background:rgba(0,0,0,0.3);
+    display: none;
+    height:100%;
+    left:0;
+    position: fixed;
+    top:0;
+    width:100%;
+    z-index:2;
+}

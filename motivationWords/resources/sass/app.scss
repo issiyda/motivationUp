@@ -1,9 +1,13 @@
+//Reset Css
+@import './base/reset';
+
+
 // Fonts
+
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 
 @import "base/all";
-@import './base/reset';
 // Variables
 @import 'variables';
 

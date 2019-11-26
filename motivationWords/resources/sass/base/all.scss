@@ -1,4 +1,21 @@
+@import 'reset';
+@import 'overlay';
+
+
+
 *{
     font-family: 'Noto Serif JP', serif;
 
+}
+
+h2{
+    padding:3%;
+    font-weight:bolder;
+}
+
+h3{
+    border-bottom:1px solid #0DCEA8;
+    margin-left:3%;
+    padding:1%;
+    width:90%;
 }

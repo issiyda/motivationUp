@@ -23,7 +23,7 @@
 
 </head>
 <body>
-
+<div id="overlay"></div>
     <div id="app">
         <div class="footer-top">
         <nav class="navbar navbar-expand-md navbar-light shadow-sm">
@@ -90,13 +90,15 @@
 
         </main>
 
-        <drawer-component></drawer-component>
 
         </div>
         <footer>
             <footer-component></footer-component>
         </footer>
 
-    </div>
+        <drawer-component></drawer-component>
+
+
+</div>
 </body>
 </html>

@@ -1851,6 +1851,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "DrawerMenuComponent"
 });
@@ -1859,13 +1861,17 @@ $(function () {
     if ($('#drawer').hasClass('off')) {
       $('#drawer').removeClass('off');
       $(this).animate({
-        'marginRight': '80px'
+        'marginRight': '20%'
       }, 300).addClass('on');
+      $('#overlay').fadeIn();
+      $(".side_menu").hide().fadeIn(1500);
     } else {
       $('#drawer').addClass('off');
       $(this).animate({
         'marginRight': '0px'
       }, 300);
+      $('#overlay').fadeOut();
+      $(".side_menu").fadeOut(300);
     }
   });
 });
@@ -2056,17 +2062,25 @@ __webpack_require__.r(__webpack_exports__);
         "title": this.title,
         "text": this.text
       };
-      var id = 11;
+      var id = this.user.id;
       axios.post('/api/post/' + id, text).then(function (res) {
         console.log('res.data.title');
         console.log('res.data.text');
+      })["catch"](function (error) {
+        console.log(error);
       });
     }
   },
   mounted: function mounted() {
     console.log('PostComponent mounted.');
   },
-  name: "PostComponent"
+  name: "PostComponent",
+  props: {
+    user: {
+      type: Object,
+      required: true
+    }
+  }
 });
 
 /***/ }),
@@ -2171,7 +2185,7 @@ __webpack_require__.r(__webpack_exports__);
   name: "SettingComponent",
   props: {
     user: {
-      type: String,
+      type: Object,
       required: true
     }
   }
@@ -6636,7 +6650,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#drawer[data-v-d0632d1e]{\n    border-radius: 3%;\n    z-index: 99;\n    cursor: pointer;\n    position: fixed;\n    top: 15%;\n    right: -80px;\n    background: #0DCEA8;\n    width: 140px;\n    color: #fff;\n    font-size: 16px;\n    height:20%;\n}\n.drawer-container[data-v-d0632d1e]{\n    display:-webkit-box;\n    display:flex;\n    height:100%;\n    margin:auto;\n}\n.drawer-container ul[data-v-d0632d1e]{\n    display:-webkit-box;\n    display:flex;\n    -webkit-box-orient:vertical;\n    -webkit-box-direction:normal;\n            flex-direction:column;\n    margin:auto;\n}\nli[data-v-d0632d1e]{\n    margin-bottom:3%;\n}\n.drawer-container a[data-v-d0632d1e]{\n    text-decoration:none;\n}\na[data-v-d0632d1e]{\n    color:ghostwhite;\n\n    display:inline-block;\n    position:relative;\n    text-decoration:none;\n}\na[data-v-d0632d1e]::after{\n    position:absolute;\n    bottom:-2px;\n    left:0;\n    content: \"\";\n    width: 100%;\n    height:2px;\n    background:white;\n    -webkit-transform: scale(0, 1);\n            transform: scale(0, 1);\n    -webkit-transform-origin: right top;\n            transform-origin: right top;\n    -webkit-transition: -webkit-transform .3s;\n    transition: -webkit-transform .3s;\n    transition: transform .3s;\n    transition: transform .3s, -webkit-transform .3s;\n}\na[data-v-d0632d1e]:hover::after{\n    -webkit-transform-origin: left top;\n            transform-origin: left top;\n    -webkit-transform: scale(1,1);\n            transform: scale(1,1);\n}\n\n", ""]);
+exports.push([module.i, "\n.side_menu[data-v-d0632d1e]{\n    display:none;\n    padding:7%;\n    text-align:center;\n    -webkit-transform: rotate(-10deg);\n            transform: rotate(-10deg);\n}\n#drawer[data-v-d0632d1e]{\n    border:1px solid #fff;\n    border-radius: 3%;\n    z-index: 99;\n    cursor: pointer;\n    top: 15%;\n    right: -20%;\n    background: #0DCEA8;\n    width: 25%;\n    color: #fff;\n    font-size: 16px;\n    height:90%;\n    position: fixed;\n}\n.drawer-container[data-v-d0632d1e]{\n    display:-webkit-box;\n    display:flex;\n    height:80%;\n    margin:auto;\n}\n.drawer-container ul[data-v-d0632d1e]{\n    display:-webkit-box;\n    display:flex;\n    -webkit-box-orient:vertical;\n    -webkit-box-direction:normal;\n            flex-direction:column;\n    height:100%;\n    justify-content: space-around;\n    margin:auto;\n}\nli[data-v-d0632d1e]{\n    margin-bottom:3%;\n    font-size:30px;\n}\n.drawer-container a[data-v-d0632d1e]{\n    text-decoration:none;\n}\na[data-v-d0632d1e]{\n    color:ghostwhite;\n\n    display:inline-block;\n    position:relative;\n    text-decoration:none;\n}\na[data-v-d0632d1e]::after{\n    position:absolute;\n    bottom:-2px;\n    left:0;\n    content: \"\";\n    width: 100%;\n    height:2px;\n    background:white;\n    -webkit-transform: scale(0, 1);\n            transform: scale(0, 1);\n    -webkit-transform-origin: right top;\n            transform-origin: right top;\n    -webkit-transition: -webkit-transform .3s;\n    transition: -webkit-transform .3s;\n    transition: transform .3s;\n    transition: transform .3s, -webkit-transform .3s;\n}\na[data-v-d0632d1e]:hover::after{\n    -webkit-transform-origin: left top;\n            transform-origin: left top;\n    -webkit-transform: scale(1,1);\n            transform: scale(1,1);\n}\n\n", ""]);
 
 // exports
 
@@ -38229,6 +38243,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "off", attrs: { id: "drawer" } }, [
+    _c("h3", { staticClass: "side_menu" }, [_vm._v("さいどめにゅー")]),
+    _vm._v(" "),
     _c("div", { staticClass: "drawer-container" }, [
       _c("ul", [
         _vm._m(0),
