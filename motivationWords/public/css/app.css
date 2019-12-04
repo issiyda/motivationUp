@@ -11412,9 +11412,10 @@ a.text-dark:focus {
 }
 
 .post-container {
-  background: deepskyblue;
   display: -webkit-box;
   display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
 }
 
 .post-container-title {
@@ -11424,10 +11425,13 @@ a.text-dark:focus {
 }
 
 .post-container-icon {
+  margin: 5% auto;
+  text-align: center;
   width: 20%;
 }
 
 .post-card {
+  background: deepskyblue;
   border: 1px solid #0DCEA8;
   border-radius: 2%;
   display: -webkit-box;

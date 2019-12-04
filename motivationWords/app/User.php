@@ -12,7 +12,13 @@ class User extends Authenticatable
 
     public function posts()
     {
+
         return $this->hasMany(Post::class);
+    }
+
+    public function favorites()
+    {
+        return $this->belongsTo(Favorite::class);
     }
 
     /**

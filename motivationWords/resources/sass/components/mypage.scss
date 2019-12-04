@@ -9,8 +9,9 @@
     width: 80%;
 
     &-container {
-        background: deepskyblue;
         display:flex;
+        justify-content: center;
+
 
 
         &-title {
@@ -19,11 +20,14 @@
             width:80%;
         }
         &-icon{
+            margin:5% auto;
+            text-align:center;
             width:20%;
         }
 
     }
     &-card{
+        background: deepskyblue;
         border:1px solid #0DCEA8;
         border-radius:2% ;
         display:flex;

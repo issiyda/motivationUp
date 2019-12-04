@@ -7,11 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
 
-    public function User()
+    public function user()
     {
-        return $this->belongsTo(Post::class);
+        return $this->belongsTo(User::class);
     }
-    //
+
+    public function favorite()
+    {
+        return $this->belongsTo(Favorite::class);
+    }
+
+
+
     protected $fillable = [
         'title','text',
     ];

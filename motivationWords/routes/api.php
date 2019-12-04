@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -41,9 +41,21 @@ Route::group(['middleware' => 'api'],function(){
 
 Route::get('/mypage', function(Request $request) {
 
-    $posts = App\Post::all();
+
+    $posts = \App\Post::all();
 
     return response()->json(['posts' => $posts]);
+});
+
+Route::patch('/titleEdit/{id}', function(Request $request, $id) {
+
+    $post =  \App\Post::find($id);
+
+    $post->fill($request->all())->update();
+
+    return response()->json([
+        'success' => 'postTitle updated successfully!'
+    ],200);
 });
 
 Route::get('/setting', function(){
@@ -53,7 +65,7 @@ Route::get('/setting', function(){
 //        return response()->json(['users' => $users]);
 
 
-    $users = App\User::all();
+    $users = \App\User::all();
 
     return response()->json(['users' => $users]);
 
@@ -72,4 +84,11 @@ Route::patch('/setting/{id}',function($id,Request $request){
 
 
 });
+
+/**
+ * お気に入り切り替え
+ * FavoriteController favorite
+ *
+ */
+//Route::patch('/favSwitch/{id}','favoriteController@favorite');
 
