@@ -85,7 +85,10 @@
 
         <main class="py-4">
             @if(Auth::check())
-                <router-view :user = "{{$user}}" :userPost = "{{$userPosts}}"/>
+                <router-view
+                    :user = "{{$user}}"
+{{--                        :userPosts = "{{$userPosts}}"--}}
+                />
             @else
                 @yield('content')
             @endif

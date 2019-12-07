@@ -18,7 +18,7 @@ class MotivationController extends Controller
     {
         //
         $user = Auth::user();
-        $userPosts = User::find(2)->posts;
+        $userPosts = User::find(1)->posts;
 
         return view('mypage',compact(['user','userPosts']));
     }

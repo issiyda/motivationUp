@@ -6,7 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Favorite extends Model
 {
+
+
+    protected $fillable = [
+        'user_id', 'post_id','fav_flag'
+    ];
+
     //
+
+
     /**
      * Userモデルが多Favoriteも多
      *
@@ -27,7 +35,9 @@ class Favorite extends Model
         return $this->hasMany(User::class);
     }
 
-    protected $fillable = [
-        'user_id', 'post_id',
-    ];
+
+
+//    protected $attributes =[
+//        'fav_flag' => 0
+//    ];
 }

@@ -1,27 +1,12 @@
 <template>
     <div class ="mypage">
         <h2>Mypage</h2>
-        <h3>Myモチベ</h3>
-        <div  class ="post post-container">
-            <div v-for="(post ,index)  in posts " class="post-card" :post="post" :key="post.id" :index="index">
-                    <div class="post-container">
-                        <div class="post-container-title">
-                            <div>タイトル</div>
-                            <div v-if="!isTitleEdit" @click="inputTitle(post)">{{post.title}}</div>
-                            <input type="text" ref="focus" @blur="titleEdit(post.id,post.title)"  v-else :key="post.id" v-model="post.title">
-                        </div>
-                        <div class ="post-container-icon fav-icon">
-                        <i :class="{'fas':true, 'fa-heart':true, 'fa-2x':true , 'heart': heartActive}" @click="favSwitch(post.id)"></i>
-                        </div>
-                    </div>
 
-                <div class="post-main">
-                    <div>言葉</div>
-                    <div v-if="!isTextEdit" @click="inputText(post.id)">{{post.text}}</div>
-                    <textarea ref="text" v-else @blur="textEdit(post.id,post.text)" name="" id="" cols="30" rows="10" :key="post.id" v-model="post.text"></textarea>
-                </div>
-            </div>
-        </div>
+        <h3>全ユーザのモチベ</h3>
+        　<allpost-component></allpost-component>
+
+        <h3>Myモチベ</h3>
+          <mypost-component :id="user.id"></mypost-component>
 
         <h3>Favモチベ</h3>
         <div class="fav fav-container">
@@ -41,121 +26,17 @@
 
 <script>
     export default {
-
         data: function(){
+
             return{
-                isTitleEdit: false,
-                isTextEdit: false,
-                posts:[],
-                heartActive: false
+
+                user:[]
+
             }
         },
-        methods: {
 
-            /**
-             * Title編集のメソッド
-             *
-             * @param id
-             * @param title
-             */
-            titleEdit(id, title) {
-
-                axios.patch('api/titleEdit/' + id, {id: id, title: title})
-                    .then(response => {
-                        this.isTitleEdit = false;
-                        console.log(response);
-                    }).catch((error) => {
-                    console.log(error)
-                });
-            },
-
-            /**
-             * Text変数のメソッド
-             *
-             * @param id
-             * @param text
-             */
-            textEdit(id,text){
-
-                axios.patch('api/textEdit/' +id, {id : id , text: text})
-                    .then(response =>{
-                        this.isTextEdit = false;
-                        console.log(response);
-                    }).catch((error) => {
-                        console.log(error);
-                })
-            },
-
-            /**
-             * インプット切り替え（タイトル）
-             *
-             * @param post
-             */
-            inputTitle(post){
-                this.isTitleEdit = true;
-                this.$nextTick(()=>
-                {
-                    this.$refs.text.focus();
-                });
-                console.log('Title focus!!');
-            },
-
-            /**
-             * インプット切り替え（テキスト）
-             *
-             * @param post
-             */
-            inputText(post){
-                this.isTextEdit = true;
-                this.$nextTick(()=>
-                {
-                    this.$refs.post.focus()
-                });
-                console.log('Title focus!!');
-
-            },
-
-            // axios.patch('api/textEdit/' +id, {id : id , text: text})
-            //     .then(response =>{
-            //         this.isTextEdit = false;
-            //         console.log(response);
-            //     }).catch(error) => {
-            //         console.log(error);
-            //     })
-
-            favSwitch(id){
-                this.heartActive = !this.heartActive;
-                axios.patch('/favSwitch/' +id,{id:id,})
-                    .then(response =>{
-                    this.heartActive = !this.heartActive;
-                    console.log(response);
-                }).catch((error) => {
-                    console.log(error);
-                });
-            }
-            },
-            mounted() {
-                console.log('MypageComponent mounted');
-
-                axios.get('/api/mypage')
-                    .then(response => {
-                        this.posts = response.data.posts;
-                    })
-                    .catch(error => {
-                        console.log(error)
-                    });
-            },
-            name: "MypageComponent",
-            props: {
-                posts: {
-                    type: Object, required: true
-                },
-                userPosts: {
-                    type: Object, required: true
-                },
-            }
-
-        }
+        props:['user']
+    }
 </script>
 
 <style scoped>

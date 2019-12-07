@@ -1,5 +1,7 @@
 <?php
 
+use App\Post;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
@@ -41,10 +43,15 @@ Route::group(['middleware' => 'api'],function(){
 
 Route::get('/mypage', function(Request $request) {
 
+    $userID = 1;
 
-    $posts = \App\Post::all();
+    $allPosts = \App\Post::all();
 
-    return response()->json(['posts' => $posts]);
+    return response()->json
+    (
+        ['allPosts' => $allPosts],
+    );
+
 });
 
 Route::patch('/titleEdit/{id}', function(Request $request, $id) {
@@ -90,5 +97,5 @@ Route::patch('/setting/{id}',function($id,Request $request){
  * FavoriteController favorite
  *
  */
-//Route::patch('/favSwitch/{id}','favoriteController@favorite');
+Route::patch('/favSwitch/{id}','FavoriteController@favorite');
 

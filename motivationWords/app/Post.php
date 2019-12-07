@@ -3,13 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\App;
 
 class Post extends Model
 {
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->hasMany('App\User','user_id');
     }
 
     public function favorite()
@@ -20,7 +21,7 @@ class Post extends Model
 
 
     protected $fillable = [
-        'title','text',
+        'title','text','user_id'
     ];
 
 

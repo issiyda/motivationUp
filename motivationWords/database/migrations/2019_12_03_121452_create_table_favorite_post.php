@@ -13,7 +13,7 @@ class CreateTableFavoritePost extends Migration
      */
     public function up()
     {
-        Schema::create('favorite_post', function (Blueprint $table) {
+        Schema::create('favorite_posts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('user_id');
             $table->string('post_id');
