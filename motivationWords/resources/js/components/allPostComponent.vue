@@ -15,8 +15,8 @@
 
             <div class="post-main">
                 <div>言葉</div>
-                <div v-if="!isTextEdit" @click="inputText(post.id)">{{post.text}}</div>
-                <textarea ref="text" v-else @blur="textEdit(post.id,post.text)" name="" id="" cols="30" rows="10" :key="post.id" v-model="post.text"></textarea>
+                <div class ="post-main-title" v-if="!isTextEdit" @click="inputText(post.id)">{{post.text}}</div>
+                <textarea class ="post-main-title" ref="text" v-else @blur="textEdit(post.id,post.text)" name="" id="" cols="30" rows="10" :key="post.id" v-model="post.text"></textarea>
             </div>
         </div>
     </div>
@@ -120,11 +120,12 @@
         },
 
         mounted() {
-            console.log('MypageComponent mounted');
+            console.log('allPostComponent mounted');
 
             axios.get('/api/mypage')
                 .then(response => {
                     this.allPosts = response.data.allPosts;
+                    this.favState = response.data.a
 
 
 

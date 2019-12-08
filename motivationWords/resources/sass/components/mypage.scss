@@ -38,6 +38,10 @@
 
     &-main{
         padding:3%;
+
+        &-title{
+            word-break: break-all;
+        }
     }
 
 }

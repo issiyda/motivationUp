@@ -11447,6 +11447,10 @@ a.text-dark:focus {
   padding: 3%;
 }
 
+.post-main-title {
+  word-break: break-all;
+}
+
 .setting {
   background: #fff;
   display: -webkit-box;

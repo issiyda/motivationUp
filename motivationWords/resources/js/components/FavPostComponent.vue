@@ -1,6 +1,6 @@
 <template>
     <div  class ="post post-container">
-        <div v-for="(post ,index)  in myPosts " class="post-card" :post="post" :key="post.id" :index="index">
+        <div v-for="(post ,index)  in favPosts " class="post-card" :post="post" :key="post.id" :index="index">
             <div class="post-container">
                 <div class="post-container-title">
                     <div>タイトル</div>
@@ -14,8 +14,8 @@
 
             <div class="post-main">
                 <div>言葉</div>
-                <div class ="post-main-title" v-if="!isTextEdit" @click="inputText(post.id)">{{post.text}}</div>
-                <textarea class="post-main-title" ref="text" v-else @blur="textEdit(post.id,post.text)" name="" id="" cols="30" rows="10" :key="post.id" v-model="post.text"></textarea>
+                <div v-if="!isTextEdit" @click="inputText(post.id)">{{post.text}}</div>
+                <textarea ref="text" v-else @blur="textEdit(post.id,post.text)" name="" id="" cols="30" rows="10" :key="post.id" v-model="post.text"></textarea>
             </div>
         </div>
     </div>
@@ -28,7 +28,7 @@
             return{
                 isTitleEdit: false,
                 isTextEdit: false,
-                myPosts:[],
+                favPosts:[],
                 heartActive: false
             }
         },
@@ -121,11 +121,11 @@
         },
 
         mounted() {
-            console.log('MyPostComponent mounted');
+            console.log('FavPostComponent mounted');
 
             axios.get('/api/mypage')
                 .then(response => {
-                    this.myPosts = response.data.myPosts;
+                    this.favPosts = response.data.favPosts;
 
 
                 })
@@ -133,7 +133,7 @@
                     console.log(error)
                 });
         },
-        name: "MyPostComponent",
+        name: "favPostComponent",
         props: {
             posts: {
                 type: Object, required: true

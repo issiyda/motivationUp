@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Favorite extends Model
 {
 
-
     protected $fillable = [
         'user_id', 'post_id','fav_flag'
     ];
@@ -28,11 +27,11 @@ class Favorite extends Model
 
     /**
      * PostモデルもFavoriteも多
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function posts()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsTo(User::class);
     }
 
 

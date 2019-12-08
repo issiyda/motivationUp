@@ -1,5 +1,6 @@
 <?php
 
+use App\Favorite;
 use App\Post;
 use App\User;
 use Illuminate\Http\Request;
@@ -46,14 +47,25 @@ Route::get('/mypage', function(Request $request) {
     $userID = 1;
 
     $allPosts = \App\Post::all();
+    $myPosts =  \App\Post::where('user_id' , "=",  1)->get();
+    $favPosts = \App\Post::whereHas('favorite', function($f){
+        $f->where('user_id',1)->where('fav_flag',1);
+    })->get();
 
     return response()->json
     (
-        ['allPosts' => $allPosts],
+        [   'allPosts' => $allPosts,
+            'myPosts' =>$myPosts,
+            'favPosts' => $favPosts
+        ]
     );
 
 });
 
+/**
+ * Title変更のためのルーティング
+ *
+ */
 Route::patch('/titleEdit/{id}', function(Request $request, $id) {
 
     $post =  \App\Post::find($id);
@@ -64,6 +76,22 @@ Route::patch('/titleEdit/{id}', function(Request $request, $id) {
         'success' => 'postTitle updated successfully!'
     ],200);
 });
+
+/**
+ * テキスト変更のためのルーティング
+ */
+Route::patch('/textEdit/{id}', function(Request $request, $id) {
+
+    $post =  \App\Post::find($id);
+
+    $post->fill($request->all())->update();
+
+    return response()->json([
+        'success' => 'postText updated successfully!'
+    ],200);
+});
+
+
 
 Route::get('/setting', function(){
 

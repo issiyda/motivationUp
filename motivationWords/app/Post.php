@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\App;
 class Post extends Model
 {
 
+
+
     public function user()
     {
         return $this->hasMany('App\User','user_id');
@@ -15,7 +17,7 @@ class Post extends Model
 
     public function favorite()
     {
-        return $this->belongsTo(Favorite::class);
+        return $this->hasOne(Favorite::class);
     }
 
 
