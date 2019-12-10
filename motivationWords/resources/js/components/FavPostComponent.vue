@@ -1,6 +1,6 @@
 <template>
     <div  class ="post post-container">
-        <div v-for="(post ,index)  in favPosts " class="post-card" :post="post" :key="post.id" :index="index">
+        <div v-for="(post ,index)  in favPosts " class="post-card" :style="{background: myColor}" :post="post" :key="post.id" :index="index">
             <div class="post-container">
                 <div class="post-container-title">
                     <div>タイトル</div>
@@ -29,7 +29,9 @@
                 isTitleEdit: false,
                 isTextEdit: false,
                 favPosts:[],
-                heartActive: false
+                heartActive: false,
+                myColor: this.color
+
             }
         },
         methods: {
@@ -141,6 +143,9 @@
             userPosts: {
                 type: Object, required: true
             },
+            color: {
+                type: Object, required: true
+            }
         }
 
     }

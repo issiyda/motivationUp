@@ -1,7 +1,7 @@
 
 <template>
     <div  class ="post post-container">
-        <div v-for="(post ,index)  in allPosts" class="post-card" :post="post" :key="post.id" :index="index">
+        <div v-for="(post ,index)  in allPosts" :class="{'post-card':true}" :style="{background: myColor}" :post="post" :key="post.id" :index="index">
             <div class="post-container">
                 <div class="post-container-title">
                     <div>タイトル</div>
@@ -30,10 +30,12 @@
                 isTitleEdit: false,
                 isTextEdit: false,
                 allPosts:[],
-                heartActive: false
+                heartActive: false,
+                myColor: this.color
+
             }
         },
-        methods: {
+
 
             /**
              * Title編集のメソッド
@@ -116,15 +118,25 @@
                     console.log(error.response);
 
                 });
+        },
+
+        created() {
+
+        },
+        props: {
+            'color': {
+                type: String,
+                required: true
             }
         },
 
+
         mounted() {
-            console.log('allPostComponent mounted');
 
             axios.get('/api/mypage')
                 .then(response => {
                     this.allPosts = response.data.allPosts;
+                    this.myColor = response.data.themeColor.color;
                     this.favState = response.data.a
 
 
@@ -133,16 +145,18 @@
                 .catch(error => {
                     console.log(error)
                 });
+
+            console.log('allPostComponent mounted');
+            this.colorSet();
+            console.log('created finished');
+            console.log('theme color setting');
+
         },
         name: "allPostComponent",
-        props: {
-            posts: {
-                type: Object, required: true
-            },
-            userPosts: {
-                type: Object, required: true
-            },
-        }
+
+
+
+
 
     }
 

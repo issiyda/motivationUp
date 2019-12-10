@@ -3,13 +3,13 @@
         <h2>Mypage</h2>
 
         <h3>全ユーザのモチベ</h3>
-        　<allpost-component></allpost-component>
+        　<allpost-component :color ="user.color"></allpost-component>
 
         <h3>Myモチベ</h3>
-          <mypost-component :id="user.id"></mypost-component>
+          <mypost-component :id="user.id" :color="user.color"></mypost-component>
 
         <h3>Favモチベ</h3>
-          <favpost-component></favpost-component>
+          <favpost-component :color="user.color"></favpost-component>
 
     </div>
 </template>
@@ -19,17 +19,29 @@
         data: function(){
 
             return{
-
-                user:[]
+                user:[],
+                // myColor:""
 
             }
         },
 
-        props:['user']
+        created: function(){
+
+            axios.get('/api/mypage')
+                .then(response => {
+                    // this.myColor = response.data.themeColor.color;
+
+                    console.log('created finished')
+                })
+        },
+
+        props:['user'],
+
     }
 </script>
+　　　
 
-<style scoped>
+<style>
   .heart{
       color:red;
   }

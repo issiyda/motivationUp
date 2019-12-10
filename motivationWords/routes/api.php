@@ -1,6 +1,7 @@
 <?php
 
 use App\Favorite;
+use App\Http\Controllers\SettingController;
 use App\Post;
 use App\User;
 use Illuminate\Http\Request;
@@ -52,11 +53,15 @@ Route::get('/mypage', function(Request $request) {
         $f->where('user_id',1)->where('fav_flag',1);
     })->get();
 
+    $themeColor = \App\User::where('id', "=",$userID)
+        ->select('color')->first();
+
     return response()->json
     (
         [   'allPosts' => $allPosts,
             'myPosts' =>$myPosts,
-            'favPosts' => $favPosts
+            'favPosts' => $favPosts,
+            'themeColor' => $themeColor,
         ]
     );
 
@@ -107,9 +112,20 @@ Route::get('/setting', function(){
 
 });
 
+/**
+ *
+ * テーマカラー変更
+ */
+Route::patch('/setting/color/{id}','SettingController@settingColor');
+
+
+/**
+ * アカウント設定に関する処理
+ */
+
 Route::patch('/setting/{id}',function($id,Request $request){
 
-    $user = App\User::find($id);
+    $user = \App\User::find($id);
 
     $user->fill($request->all())->update();
 
@@ -117,8 +133,8 @@ Route::patch('/setting/{id}',function($id,Request $request){
         'success' => 'user updated successfully!'
     ],200);
 
-
 });
+
 
 /**
  * お気に入り切り替え
